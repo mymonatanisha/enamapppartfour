@@ -22,6 +22,8 @@ public class DBHandler extends SQLiteOpenHelper {
     // Step 2: Add GENDER column
     public static final String COLUMN_GENDER = "gender";
     public static final String COLUMN_DOB = "dob";
+
+     public static final String COLUMN_OCCUPATION = "occupation";
 ;
 
     // 🔹 Create Table SQL
@@ -30,7 +32,8 @@ public class DBHandler extends SQLiteOpenHelper {
                     COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
                     COLUMN_NAME + " TEXT, " +
                     COLUMN_GENDER + " TEXT, " +
-                    COLUMN_DOB + " TEXT)";
+                    COLUMN_DOB + " TEXT, " +
+                    COLUMN_OCCUPATION + " TEXT)";
 
     // Constructor
     public DBHandler(Context context) {
@@ -56,12 +59,13 @@ public class DBHandler extends SQLiteOpenHelper {
 
     // now creating a method to save data to database
 
-    public void addParticipant(String participantName, String gender, String dob) {
+public void addParticipant(String participantName, String gender, String dob,  String occupation) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
         values.put(COLUMN_NAME, participantName);
         values.put(COLUMN_GENDER, gender);
         values.put(COLUMN_DOB, dob );
+        values.put(COLUMN_OCCUPATION, occupation);
         db.insert(TABLE_NAME, null, values);
 
         db.close();
