@@ -75,6 +75,21 @@
         android:text="Select Date"
         android:textColor="@color/black" />
 
+     <!-- 4. Occupation -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:text="4. Occupation:"
+        android:textSize="16sp" />
+
+    <Spinner
+        android:id="@+id/spinnerOccupation"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@android:drawable/editbox_background"
+        android:layout_margin="10dp" />
+
 
     <Button
         android:id="@+id/idParticipantBtn"
