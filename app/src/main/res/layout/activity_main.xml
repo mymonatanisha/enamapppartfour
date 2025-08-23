@@ -5,8 +5,12 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    tools:context="com.enamnotes.enamappparttwo.MainActivity">
+    android:layout_marginStart="20dp"
+    android:layout_marginTop="50dp"
+    android:layout_marginEnd="20dp"
+    android:layout_marginBottom="20dp"
+    android:orientation="horizontal"
+    tools:context="enamapppartfour.MainActivity">
 
     <TextView
         android:layout_width="wrap_content"
@@ -33,8 +37,8 @@
         android:id="@+id/rgGender"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_margin="10dp">
+        android:layout_margin="10dp"
+        android:orientation="horizontal">
 
         <RadioButton
             android:id="@+id/rbMale"
@@ -48,6 +52,29 @@
             android:layout_height="wrap_content"
             android:text="Female" />
     </RadioGroup>
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:text="2. Date of Birth: "
+        android:textSize="16sp" />
+
+
+    <!-- Date of Birth Display -->
+    <TextView
+        android:id="@+id/tvDob"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:background="@android:drawable/editbox_background"
+        android:clickable="true"
+        android:focusable="true"
+        android:padding="10dp"
+        android:text="Select Date"
+        android:textColor="@color/black" />
+
 
     <Button
         android:id="@+id/idParticipantBtn"

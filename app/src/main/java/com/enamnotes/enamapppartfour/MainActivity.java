@@ -1,14 +1,18 @@
-package com.enamnotes.enamappparttwo;
+package com.enamnotes.enamapppartfour;
 
+import android.app.DatePickerDialog;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioGroup;
+import android.widget.TextView;
 import android.widget.Toast;
 
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import java.util.Calendar;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -16,6 +20,10 @@ public class MainActivity extends AppCompatActivity {
     private EditText participantNameEdit;
     private Button addparticipantBtn;
     private DBHandler dbHandler;
+
+    private TextView tvDob;
+
+    private String selectedDob = "";
 
 
     @Override
@@ -27,8 +35,28 @@ public class MainActivity extends AppCompatActivity {
         addparticipantBtn = findViewById(R.id.idParticipantBtn);
         // Step 3: Reference RadioGroup and get selected gender
         RadioGroup rgGender = findViewById(R.id.rgGender);
+        tvDob = findViewById(R.id.tvDob);
 
         dbHandler = new DBHandler(MainActivity.this);
+
+        tvDob.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Show DatePickerDialog
+                Calendar calendar = Calendar.getInstance();
+                int year = calendar.get(Calendar.YEAR);
+                int month = calendar.get(Calendar.MONTH);
+                int day = calendar.get(Calendar.DAY_OF_MONTH);
+
+                DatePickerDialog datePickerDialog = new DatePickerDialog(MainActivity.this,
+                        (view, year1, month1, dayOfMonth) -> {
+                            // Format date as yyyy-MM-dd
+                            selectedDob = year1 + "-" + String.format("%02d", month1 + 1) + "-" + String.format("%02d", dayOfMonth);
+                            tvDob.setText(selectedDob);
+                        }, year, month, day);
+                datePickerDialog.show();
+            }
+        });
 
         addparticipantBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -43,19 +71,21 @@ public class MainActivity extends AppCompatActivity {
                 else if (selectedId == R.id.rbFemale) gender = "Female";
 
                 //Validate input
-                if (participantName.isEmpty() || gender == null) {
+                if (participantName.isEmpty() || gender == null  || selectedDob.isEmpty()) {
                     Toast.makeText(MainActivity.this, "Please enter a name", Toast.LENGTH_SHORT).show();
                     return;
                 }
 
                 // Do DB or action call
-                dbHandler.addParticipant(participantName, gender);
+                dbHandler.addParticipant(participantName, gender,  selectedDob);
 
                 // Show success message to user
                 Toast.makeText(MainActivity.this,"Participant Added Successfully", Toast.LENGTH_SHORT).show();
 
                 participantNameEdit.setText("");
                 rgGender.clearCheck();
+                tvDob.setText("Select Date");
+                selectedDob = "";
 
 
             }

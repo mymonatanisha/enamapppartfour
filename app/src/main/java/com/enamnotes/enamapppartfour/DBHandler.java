@@ -1,4 +1,4 @@
-package com.enamnotes.enamappparttwo;
+package com.enamnotes.enamapppartfour;
 
 import android.content.ContentValues;
 import android.content.Context;
@@ -21,6 +21,7 @@ public class DBHandler extends SQLiteOpenHelper {
     public static final String COLUMN_NAME = "name";
     // Step 2: Add GENDER column
     public static final String COLUMN_GENDER = "gender";
+    public static final String COLUMN_DOB = "dob";
 ;
 
     // 🔹 Create Table SQL
@@ -28,7 +29,8 @@ public class DBHandler extends SQLiteOpenHelper {
             "CREATE TABLE " + TABLE_NAME + " (" +
                     COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
                     COLUMN_NAME + " TEXT, " +
-                    COLUMN_GENDER + " TEXT) ";
+                    COLUMN_GENDER + " TEXT, " +
+                    COLUMN_DOB + " TEXT)";
 
     // Constructor
     public DBHandler(Context context) {
@@ -54,11 +56,12 @@ public class DBHandler extends SQLiteOpenHelper {
 
     // now creating a method to save data to database
 
-    public void addParticipant(String participantName, String gender) {
+    public void addParticipant(String participantName, String gender, String dob) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
         values.put(COLUMN_NAME, participantName);
         values.put(COLUMN_GENDER, gender);
+        values.put(COLUMN_DOB, dob );
         db.insert(TABLE_NAME, null, values);
 
         db.close();
