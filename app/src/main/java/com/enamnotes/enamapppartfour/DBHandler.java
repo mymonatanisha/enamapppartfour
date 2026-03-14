@@ -4,16 +4,12 @@ import android.content.ContentValues;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
-import android.util.Log;
-
-import java.io.File;
 
 public class DBHandler extends SQLiteOpenHelper {
 
     // 🔹 DB Info
     private static final String DATABASE_NAME = "participantdb";
     private static final int DATABASE_VERSION = 4;
-    private static final String TAG = "DBHandler";
 
     // 🔹 Example Table & Columns
     public static final String TABLE_NAME = "participantlist";
@@ -24,7 +20,7 @@ public class DBHandler extends SQLiteOpenHelper {
     public static final String COLUMN_DOB = "dob";
 
      public static final String COLUMN_OCCUPATION = "occupation";
-;
+
 
     // 🔹 Create Table SQL
     private static final String QUERY =
@@ -37,17 +33,8 @@ public class DBHandler extends SQLiteOpenHelper {
 
     // Constructor
     public DBHandler(Context context) {
-        super(context, getCustomDatabasePath(context), null, DATABASE_VERSION);
+        super(context, DATABASE_NAME, null, DATABASE_VERSION);
     }
-
-
-    private static String getCustomDatabasePath(Context context) {
-        File directory = context.getExternalFilesDir(null);
-        String customDbPath = directory.getAbsolutePath() + "/participantdb.db";
-        Log.d(TAG, "Custom Database Path: " + customDbPath);
-        return customDbPath;
-    }
-
 
 
 

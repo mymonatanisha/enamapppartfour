@@ -3,9 +3,11 @@ package com.enamnotes.enamapppartfour;
 import android.app.DatePickerDialog;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioGroup;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -18,7 +20,7 @@ import java.util.Calendar;
 public class MainActivity extends AppCompatActivity {
 
     private EditText participantNameEdit;
-    private Button addparticipantBtn;
+    private Button addParticipantBtn;
     private DBHandler dbHandler;
 
     private TextView tvDob;
@@ -32,7 +34,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         participantNameEdit = findViewById(R.id.idParticipantName);
-        addparticipantBtn = findViewById(R.id.idParticipantBtn);
+        addParticipantBtn = findViewById(R.id.idParticipantBtn);
         // Step 3: Reference RadioGroup and get selected gender
         RadioGroup rgGender = findViewById(R.id.rgGender);
         tvDob = findViewById(R.id.tvDob);
@@ -69,7 +71,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        addparticipantBtn.setOnClickListener(new View.OnClickListener() {
+        addParticipantBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
@@ -87,7 +89,7 @@ public class MainActivity extends AppCompatActivity {
 
                 //Validate input
                 if (participantName.isEmpty() || gender == null  || selectedDob.isEmpty()|| occupation.isEmpty()) {
-                    Toast.makeText(MainActivity.this, "Please enter a name", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(MainActivity.this, "Please fill in all required fields", Toast.LENGTH_SHORT).show();
                     return;
                 }
 
