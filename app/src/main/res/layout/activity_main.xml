@@ -1,104 +1,142 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_marginStart="20dp"
-    android:layout_marginTop="50dp"
-    android:layout_marginEnd="20dp"
-    android:layout_marginBottom="20dp"
-    android:orientation="vertical"
+    android:background="#F8F9FA"
     tools:context="enamapppartfour.MainActivity">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="10dp"
-        android:text="1.  Participant Name: "
-        android:textSize="16sp" />
-
-    <EditText
-        android:id="@+id/idParticipantName"
+    <LinearLayout
+        android:id="@+id/main"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="10dp"
-        android:hint="Enter Name" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="10dp"
-        android:text="2. Gender: "
-        android:textSize="16sp" />
-
-    <RadioGroup
-        android:id="@+id/rgGender"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="10dp"
-        android:orientation="horizontal">
-
-        <RadioButton
-            android:id="@+id/rbMale"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Male" />
-
-        <RadioButton
-            android:id="@+id/rbFemale"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Female" />
-    </RadioGroup>
-
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="10dp"
-        android:text="3. Date of Birth: "
-        android:textSize="16sp" />
-
-
-    <!-- Date of Birth Display -->
-    <TextView
-        android:id="@+id/tvDob"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="10dp"
-        android:background="@android:drawable/editbox_background"
-        android:clickable="true"
+        android:orientation="vertical"
+        android:padding="24dp"
         android:focusable="true"
-        android:padding="10dp"
-        android:text="Select Date"
-        android:textColor="@color/black" />
+        android:focusableInTouchMode="true">
 
-     <!-- 4. Occupation -->
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="10dp"
-        android:text="4. Occupation:"
-        android:textSize="16sp" />
+        <TextView
+            android:id="@+id/tvFormTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Participant Form"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:textColor="#222222"
+            android:layout_marginBottom="24dp" />
 
-    <Spinner
-        android:id="@+id/spinnerOccupation"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@android:drawable/editbox_background"
-        android:layout_margin="10dp"
-        android:padding="10dp" />
+        <!-- 1. Participant Name -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="1. Participant Name:"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:textColor="#333333"
+            android:layout_marginBottom="8dp" />
 
+        <EditText
+            android:id="@+id/idParticipantName"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:layout_marginBottom="20dp"
+            android:background="@android:drawable/edit_text"
+            android:hint="Enter Name"
+            android:inputType="textPersonName"
+            android:padding="12dp"
+            android:textColor="#000000"
+            android:textColorHint="#888888"
+            android:textSize="16sp" />
 
-    <Button
-        android:id="@+id/idParticipantBtn"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="10dp"
-        android:text="Save"
-        android:textAllCaps="false" />
+        <!-- 2. Gender -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="2. Gender:"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:textColor="#333333"
+            android:layout_marginBottom="8dp" />
 
+        <RadioGroup
+            android:id="@+id/rgGender"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            android:orientation="horizontal">
 
-</LinearLayout>
+            <RadioButton
+                android:id="@+id/rbMale"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="24dp"
+                android:text="Male"
+                android:textColor="#000000"
+                android:textSize="16sp" />
+
+            <RadioButton
+                android:id="@+id/rbFemale"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Female"
+                android:textColor="#000000"
+                android:textSize="16sp" />
+        </RadioGroup>
+
+        <!-- 3. Date of Birth -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="3. Date of Birth:"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:textColor="#333333"
+            android:layout_marginBottom="8dp" />
+
+        <TextView
+            android:id="@+id/tvDob"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:layout_marginBottom="20dp"
+            android:background="@android:drawable/edit_text"
+            android:clickable="true"
+            android:focusable="true"
+            android:gravity="center_vertical"
+            android:padding="12dp"
+            android:text="Select Date"
+            android:textColor="#000000"
+            android:textSize="16sp" />
+
+        <!-- 4. Occupation -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="4. Occupation:"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:textColor="#333333"
+            android:layout_marginBottom="8dp" />
+
+        <Spinner
+            android:id="@+id/spinnerOccupation"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:layout_marginBottom="24dp"
+            android:background="@android:drawable/edit_text"
+            android:paddingStart="12dp"
+            android:paddingEnd="12dp"
+            android:spinnerMode="dropdown" />
+
+        <Button
+            android:id="@+id/idParticipantBtn"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:backgroundTint="#4CAF50"
+            android:text="Save"
+            android:textAllCaps="false"
+            android:textColor="#FFFFFF"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+    </LinearLayout>
+</ScrollView>
