@@ -46,9 +46,9 @@ public class MainActivity extends AppCompatActivity {
         ArrayAdapter<CharSequence> occAdapter = ArrayAdapter.createFromResource(
                 this,
                 R.array.occupations_array,
-                android.R.layout.simple_spinner_item
+                R.layout.spinner_item
         );
-        occAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        occAdapter.setDropDownViewResource(R.layout.spinner_item);
         occupationSpinner.setAdapter(occAdapter);
         
 
