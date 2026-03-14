@@ -48,7 +48,7 @@ public class MainActivity extends AppCompatActivity {
                 R.array.occupations_array,
                 R.layout.spinner_item
         );
-        occAdapter.setDropDownViewResource(R.layout.spinner_item);
+        occAdapter.setDropDownViewResource(R.layout.spinner_dropdown_item);
         occupationSpinner.setAdapter(occAdapter);
         
 
